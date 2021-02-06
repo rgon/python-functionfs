@@ -173,7 +173,7 @@ class Gadget(object):
                             )
                             if message_dict.get(message_name) is not None
                         }
-                        for lang, message_dict in config_dict.get('lang_dict', {}).iteritems()
+                        for lang, message_dict in config_dict.get('lang_dict', {}).items()
                     },
                 }
                 for config_dict in config_list
@@ -190,7 +190,7 @@ class Gadget(object):
                 )
                 if message_dict.get(message_name) is not None
             }
-            for lang, message_dict in dict(lang_dict).iteritems()
+            for lang, message_dict in dict(lang_dict).items()
         }
         self.__attribute_dict = {
             name: hex(value).encode('ascii')
@@ -202,7 +202,7 @@ class Gadget(object):
                 'bDeviceProtocol': bDeviceProtocol,
                 'bDeviceClass': bDeviceClass,
                 'bDeviceSubclass': bDeviceSubclass,
-            }.iteritems()
+            }.items()
             if value is not None
         }
         self.__os_desc = (
@@ -232,13 +232,13 @@ class Gadget(object):
             return bool(udc.read())
 
     def __writeAttributeDict(self, base, attribute_dict): # pylint: disable=no-self-use
-        for attribute_name, attribute_value in attribute_dict.iteritems():
+        for attribute_name, attribute_value in attribute_dict.items():
             with open(os.path.join(base, attribute_name), 'wb') as attribute_file:
                 attribute_file.write(attribute_value)
 
     def __writeLangDict(self, base, lang_dict):
         result = []
-        for lang, message_dict in lang_dict.iteritems():
+        for lang, message_dict in lang_dict.items():
             lang_path = os.path.join(base, 'strings', lang)
             result.append(lang_path)
             os.mkdir(lang_path)

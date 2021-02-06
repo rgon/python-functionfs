@@ -1528,7 +1528,7 @@ class HIDFunction(Function):
             tail[0].bDescriptorType = hid.HID_DT_REPORT
             tail[0].wDescriptorLength = len(report_descriptor)
             index = 1
-            for descriptor_type, descriptor_list in descriptor_dict.iteritems():
+            for descriptor_type, descriptor_list in descriptor_dict.items():
                 for descriptor in descriptor_list:
                     tail[index].bDescriptorType = descriptor_type
                     tail[index].wDescriptorLength = len(descriptor)
@@ -1591,7 +1591,7 @@ class HIDFunction(Function):
         self.hid_descritptor_dict = hid_descritptor_dict = {
             hid.HID_DT_REPORT: [report_descriptor],
         }
-        for descriptor_type, descriptor_list in descriptor_dict.iteritems():
+        for descriptor_type, descriptor_list in descriptor_dict.items():
             hid_descritptor_dict.setdefault(
                 descriptor_type,
                 [],
