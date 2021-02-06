@@ -1020,7 +1020,7 @@ class Function(object):
                 ep_address_dict[descriptor.bEndpointAddress] = index
                 if not is_in:
                     out_aio_block_dict[index] = ep_aio_block_list = []
-                    for _ in xrange(out_aio_blocks_per_endpoint):
+                    for _ in range(out_aio_blocks_per_endpoint):
                         # Using mmap to get a page-aligned buffer. f_fs strongly
                         # recommends aligning IN buffers to wMaxPacketSize
                         # addresses, as this may be required by some UDCs.

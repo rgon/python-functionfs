@@ -86,7 +86,7 @@ def main():
         transfer_helper = usb1.USBTransferHelper()
         transfer_helper.setEventCallback(usb1.TRANSFER_COMPLETED, onReceive)
         transfer_list = []
-        for _ in xrange(PENDING_READ_COUNT):
+        for _ in range(PENDING_READ_COUNT):
             transfer = handle.getTransfer()
             transfer.setBulk(from_device, BUF_SIZE, transfer_helper)
             transfer.submit()
